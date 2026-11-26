@@ -2,7 +2,14 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<h1>Bem vindo(a), @User.Identity.Name!</h1>
+
+@if (User.IsInRole(role: "Administrador"))
+{
+    <p>Você está autenticado como administrador.</p>
+}
+else if (User.IsInRole(role: "Aluno"))
+{
+    <p>Você está autenticado como aluno.</p>
+}
