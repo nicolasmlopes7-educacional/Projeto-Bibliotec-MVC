@@ -13,3 +13,6 @@ else if (User.IsInRole(role: "Aluno"))
 {
     <p>Você está autenticado como aluno.</p>
 }
+<form asp-controller="Login" asp-action="Logout" method="post">
+    <button type="submit">Sair</button>
+</form>

@@ -1,2 +1,18 @@
-/bin
-/obj
+# Variáveis de ambiente
+
+# Ignora o arquivo de variáveis de ambiente
+.env
+
+# Ignora as variações dos arquivos de ambiente
+.env.*
+
+# Permite o versionamento do arquivo de exemplo.
+!.env.example
+
+# Arquivos gerados durante a compilação
+bin/
+obj/
+
+# Configurações locais do Visual Studio e VS Code
+.vs/
+.vscode/

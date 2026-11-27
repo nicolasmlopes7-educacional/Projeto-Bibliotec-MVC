@@ -1,0 +1,69 @@
+<aside class="menu-lateral">
+
+    <div class="topo-menu">
+        <button class="botao-voltar">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <img class="logo" src="~/imgs/Logo Vertical - clara.svg" alt="Logo Bibliotec">
+    </div>
+
+    <nav class="menu-navegacao">
+
+        <a asp-controller="Usuario" asp-action="Perfil" class="item-menu">
+            <i class="fa-solid fa-user"></i>
+            <span>Perfil</span>
+        </a>
+
+        @if (User.IsInRole(role: "Admistrador"))
+        {
+            <a asp-controller="Usuario" asp-action="Cadastrar" class="item-menu">
+                <i class="fa-solid fa-user-plus"></i>
+                <span>Cadastrar Usuário</span>
+            </a>
+
+            <a asp-controller="Usuario" asp-action="Index" class="item-menu">
+                <i class="fa-solid fa-user-group"></i>
+                <span>Listar Usuários</span>
+            </a>
+
+            <a asp-controller="Livro" asp-action="Cadastrar" class="item-menu">
+                <i class="fa-solid fa-book-medical"></i>
+                <span>Cadastrar Livro</span>
+            </a>
+        }
+
+
+
+        <a asp-controller="Livro" asp-action="Index" class="item-menu">
+            <i class="fa-solid fa-book-bookmark"></i>
+            <span>Listar Livros</span>
+        </a>
+
+        @if (User.IsInRole(role: "Admistrador"))
+        {
+            <a asp-controller="Reserva" asp-action="Index" class="item-menu">
+                <i class="fa-solid fa-address-book"></i>
+                <span>Livros Reservados</span>
+            </a>
+        }
+        
+        @if (User.IsInRole(role: "Aluno"))
+        {
+            <a asp-controller="Favoritos" asp-action="Index" class="item-menu">
+                <i class="fa-solid fa-address-book"></i>
+                <span>Favoritos</span>
+            </a>
+        }
+
+    </nav>
+
+    <!-- SAIR -->
+    <form asp-controller="Login" asp-action="Logout" method="post">
+        <button type="submit" class="botao-sair">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Sair</span>
+        </button>
+    </form>
+
+</aside>

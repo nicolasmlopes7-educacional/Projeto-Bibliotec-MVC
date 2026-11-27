@@ -122,5 +122,23 @@ namespace Projeto_Bibliotec_MVC.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            //* Remove os cookies de autenticação
+            await HttpContext.SignOutAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme
+            );
+
+            //* Redireciona o usuário para a tela de login.
+            return RedirectToAction("Index", "Login");
+        }
+
+        [HttpGet]
+        public IActionResult AcessoNegado()
+        {
+            return View();
+        }
     }
 }
